@@ -11,13 +11,15 @@
         {
             try
             {
+                if (msg == null)
+                    throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.NULL_MOOD, "message is null");
                 if (msg.ToLower().Contains("sad"))
                     return "SAD";
                 return "HAPPY";
             }
             catch (Exception)
             {
-                return "HAPPY";
+                throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.NULL_MOOD,"message is null");
             }
         }
     }
