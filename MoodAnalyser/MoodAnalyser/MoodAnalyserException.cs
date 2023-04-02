@@ -10,10 +10,10 @@ namespace MoodAnalyser
     {
         public enum ExceptionType
         {
-            NULL_MOOD
+            NULL_MOOD,EMPTY_MOOD
         }
         public ExceptionType exceptiontype;
-        public MoodAnalyserException(ExceptionType type,string Message) :base(Message) 
+        public MoodAnalyserException(ExceptionType type,string msg) :base(msg) 
         {
             this.exceptiontype = type;
         }

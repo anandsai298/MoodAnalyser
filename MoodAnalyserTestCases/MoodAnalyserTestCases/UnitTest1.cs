@@ -1,4 +1,3 @@
-using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities;
 using MoodAnalyser;
 
 namespace MoodAnalyserTestCases
@@ -35,5 +34,20 @@ namespace MoodAnalyserTestCases
                 Assert.AreEqual(ex.Message, "message is null");
             }
         }
+        [Test]
+        public void GivenEmptyMood_WhenAnalyse_ShouldReturnSad()
+        {
+            try
+            {
+                string msg = "";
+                Mood_Analyser analyser = new Mood_Analyser(msg);
+                string result = analyser.AnalyseMood();
+            }
+            catch (MoodAnalyserException ex)
+            {
+                Assert.AreEqual(ex.Message, "message is empty");
+            }
+        }
+
     }
 }

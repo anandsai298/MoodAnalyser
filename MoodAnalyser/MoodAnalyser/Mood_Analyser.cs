@@ -9,11 +9,11 @@
         }
         public string AnalyseMood()
         {
+            if (this.msg.Length == 0)
+                throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.EMPTY_MOOD, "message is empty");
             try
             {
-                if (msg == null)
-                    throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.NULL_MOOD, "message is null");
-                if (msg.ToLower().Contains("sad"))
+                if (this.msg.ToLower().Contains("sad"))
                     return "SAD";
                 return "HAPPY";
             }
