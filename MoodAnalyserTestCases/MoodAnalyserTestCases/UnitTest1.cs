@@ -1,4 +1,4 @@
-using MoodAnalyser;
+using MoodAnalyzer;
 
 namespace MoodAnalyserTestCases
 {
@@ -47,6 +47,14 @@ namespace MoodAnalyserTestCases
             {
                 Assert.AreEqual(ex.Message, "message is empty");
             }
+        }
+        [Test]
+        public void GetMoodAnalyserClassName_ShouldReturn_MoodAnalyserObject()
+        {
+            string msg = null;
+            object expected = new Mood_Analyser(msg);
+            object obj = MoodAnalyserReflection.CreateMoodAnalyser("MoodAnalyzer.MoodAnalyser", "MoodAnalyser");
+            expected.Equals(obj);
         }
 
     }
